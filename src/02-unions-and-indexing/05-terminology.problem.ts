@@ -8,26 +8,29 @@
  * Which is which?
  */
 
+// discriminated union / tagged union
 type A =
   | {
-      type: "a";
+      type: 'a';
       a: string;
     }
   | {
-      type: "b";
+      type: 'b';
       b: string;
     }
   | {
-      type: "c";
+      type: 'c';
       c: string;
     };
 
-type B = "a" | "b" | "c";
+// union
+type B = 'a' | 'b' | 'c';
 
+// enum
 enum C {
-  A = "a",
-  B = "b",
-  C = "c",
+  A = 'a',
+  B = 'b',
+  C = 'c',
 }
 
 export {};
