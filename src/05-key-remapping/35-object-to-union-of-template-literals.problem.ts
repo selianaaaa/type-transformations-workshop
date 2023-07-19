@@ -1,15 +1,19 @@
-import { Equal, Expect } from "../helpers/type-utils";
+import { Equal, Expect } from '../helpers/type-utils';
 
 interface FruitMap {
-  apple: "red";
-  banana: "yellow";
-  orange: "orange";
+  apple: 'red';
+  banana: 'yellow';
+  orange: 'orange';
 }
 
-type TransformedFruit = unknown;
+type TransformedFruitMap = {
+  [F in keyof FruitMap]: `${F}:${FruitMap[F]}`;
+};
+
+type TransformedFruit = TransformedFruitMap[keyof TransformedFruitMap];
 
 type tests = [
   Expect<
-    Equal<TransformedFruit, "apple:red" | "banana:yellow" | "orange:orange">
-  >,
+    Equal<TransformedFruit, 'apple:red' | 'banana:yellow' | 'orange:orange'>
+  >
 ];
